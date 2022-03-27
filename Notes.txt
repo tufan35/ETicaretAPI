@@ -11,4 +11,4 @@
  27.03.2022
 
 
- #7- Asp.NET Core 6 + Angular Ýle Mini E-Ticaret Uygulamasý|EF Core Tracking Performans Optimizasyonu
+ #7- Asp.NET Core 6 + Angular Ýle Mini E-Ticaret Uygulamasý|EF Core Tracking Performans Optimizasyonu 
