@@ -1,0 +1,14 @@
+01.03.2022 Notlar ; 
+ Core
+ - Domain ve Application katmanlarý Core klasöründe oluþturuldu.
+ - En çekirdek katmanlar olduðu için soðan mimarisine özgü dosyalama yapýlmaktadýr. 
+ Infrastructure
+ - Servisleri oluþturduðumuz katmanlarýmýz olan  infrastructure ve persistance katmanlarý bu klasörde yer almaktadýr. 
+ Presentation
+ - Presentation uygulamalarý ise bu katmanda yer almaktadýr. class library yerine console,web , api vs olabilir.
+
+
+ 27.03.2022
+
+
+ #7- Asp.NET Core 6 + Angular Ýle Mini E-Ticaret Uygulamasý|EF Core Tracking Performans Optimizasyonu
