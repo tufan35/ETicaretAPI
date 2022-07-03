@@ -1,5 +1,6 @@
 ﻿using ETicatetAPI.Domain;
 using ETicatetAPI.Domain.Entities;
+using ETicatetAPI.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,23 @@ namespace ETicaretAPI.Persistance.Contexts
         public DbSet<Order> Orders{ get; set; }
         public DbSet<Customer> Customers { get; set; }
 
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            //Change Tracker = entity üzerinden yapılan değişiklikler yada yakalanmasını sağlayan verirnin yakalanmasını sağlayana propertydir. Track edilen verileri yakalayıp elde etmemizi sağlar.
+            var datas = ChangeTracker.Entries<BaseEntity>();
+
+            foreach (var data in datas)
+            {
+                _= data.State switch
+                {
+                    EntityState.Added => data.Entity.CreatedDate = DateTime.UtcNow,
+                    EntityState.Modified =>data.Entity.UpdatedDate = DateTime.UtcNow,
+                };
+            }
+                
+
+            return await base.SaveChangesAsync(cancellationToken);
+        }
 
     }
 }
