@@ -12,14 +12,14 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ETicaretAPI.Persistance.Migrations
 {
     [DbContext(typeof(ETicaretDbContext))]
-    [Migration("20220306101428_mig_1")]
+    [Migration("20220703211906_mig_1")]
     partial class mig_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -79,10 +79,7 @@ namespace ETicaretAPI.Persistance.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("CustomerId1")
+                    b.Property<Guid>("CustomerId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Description")
@@ -91,7 +88,7 @@ namespace ETicaretAPI.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId1");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -115,7 +112,7 @@ namespace ETicaretAPI.Persistance.Migrations
                 {
                     b.HasOne("ETicatetAPI.Domain.Entities.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId1")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
