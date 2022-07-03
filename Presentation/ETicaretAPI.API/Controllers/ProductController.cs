@@ -30,16 +30,16 @@ namespace ETicaretAPI.API.Controllers
             //});
             //var count = await _productWriteRepository.SaveAsync();
 
-            Product p = await _productReadRepository.GetByIdAsync("424874a7-0f40-4f5b-a403-79e3f29d3117",false);
+            Product p = await _productReadRepository.GetByIdAsync("424874a7-0f40-4f5b-a403-79e3f29d3117", false);
             p.Name = "memet";
             await _productWriteRepository.SaveAsync();
 
 
         }
 
-        }
-
-
-
     }
+
+
+
 }
+
